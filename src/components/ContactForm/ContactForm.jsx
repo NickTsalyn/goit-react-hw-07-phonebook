@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 import { addContacts } from 'api/api';
 
 import { Button, FormStyled } from './ContactForm.styled';
+import { selectContacts } from 'redux/selectors';
 
 // const FormValidSchema = Yup.object().shape({
 //   name: Yup.string()
@@ -29,7 +30,7 @@ import { Button, FormStyled } from './ContactForm.styled';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = ({ name, phone }) => {
     const newContact = {

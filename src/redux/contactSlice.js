@@ -42,7 +42,7 @@ export const contactSlice = createSlice({
     },
     [addContacts.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.items = [...state.items, action.payload];
+      state.items.push(action.payload);
       state.error = null;
     },
     [addContacts.error]: (state, action) => {
@@ -72,5 +72,5 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { deleteContact } = contactSlice.actions;
+// export const { deleteContact } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;
